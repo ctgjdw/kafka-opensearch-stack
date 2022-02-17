@@ -23,7 +23,7 @@ services:
       - 9276:9200
       - 9277:9600 # required for Performance Analyzer
     networks:
-      - ct
+      - "host-net"
   
   opensearch-dashboards:
     image: opensearchproject/opensearch-dashboards:latest
@@ -35,8 +35,8 @@ services:
     environment:
       OPENSEARCH_HOSTS: '["https://opensearch:9200"]'
     networks:
-      - ct
+      - "host-net"
 
 networks:
-  ct:
+  host-net:
     external: true

@@ -11,7 +11,7 @@ services:
       - ./zookeeper/data:/var/lib/zookeeper/data
       - ./zookeeper/log:/var/lib/zookeeper/log
     networks:
-      - ct
+      - "host-net"
   
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -33,7 +33,7 @@ services:
     volumes:
       - ./kafka/data:/var/lib/kafka/data
     networks:
-      - ct
+      - "host-net"
   
   kafka-ui:
     container_name: kafka-ui
@@ -50,7 +50,7 @@ services:
       KAFKA_CLUSTERS_0_JMXPORT: 9997
       KAFKA_CLUSTERS_0_SCHEMAREGISTRY: http://kafka-schema-registry:8081
     networks:
-      - ct
+      - "host-net"
   
   kafka-schema-registry:
     image: confluentinc/cp-schema-registry
@@ -66,12 +66,12 @@ services:
       - zookeeper
       - kafka
     networks:
-      - ct
+      - "host-net"
 
 volumes:
   zookeeper:
   kafka:
    
 networks:
-  ct:
+  host-net:
    external: true
