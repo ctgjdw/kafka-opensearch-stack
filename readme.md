@@ -3,6 +3,7 @@
 Kafka with:
 - `Schema Registry`
 - `Zookeeper`
+- `provectus/kafka-ui`
 
 OpenSearch with:
 - `OpenSearch Dashboard` (Kibana)
